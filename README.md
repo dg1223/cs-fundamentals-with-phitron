@@ -1,1 +1,1 @@
-# cs-fundamentals-with-phitron
+# CS Fundamentals with Phitron
