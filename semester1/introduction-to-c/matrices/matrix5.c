@@ -30,7 +30,7 @@ int main(){
         printf("Primary diagonal");
     }
     else {
-        printf("Not diagonal");
+        printf("Not primary diagonal");
     }
     return 0;
 }
