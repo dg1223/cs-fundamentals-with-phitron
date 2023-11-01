@@ -20,7 +20,7 @@ int main(){
         for (int j=0; j<col; j++){
             // check if primary diagonal
             if (i == j){
-                if (a[i][j] != a[0][0]){
+                if (a[i][j] != 1){
                     flag = 0;
                 }
                 // we should not check the next condition
@@ -34,10 +34,10 @@ int main(){
         }
     }
     if (flag == 1){
-        printf("Scalar matrix");
+        printf("Unit matrix");
     }
     else {
-        printf("Not scalar matrix");
+        printf("Not unit matrix");
     }
     return 0;
 }
