@@ -7,7 +7,9 @@ Given two numbers N, M and a 2D array of size N * M
 Input
 
 First line contains two numbers N
-, M (1 ≤ N,M ≤ 100) N denotes number of rows and M denotes number of columns.
+, M (1 ≤ N,M ≤ 100) N donates number of rows and M
+
+donates number of columns.
 
 Each of the next N
 lines will contain M numbers (1 ≤ A_i,j ≤ 10^9)
@@ -45,7 +47,7 @@ int main(){
         for (int j=0; j<col; j++){
             //printf("i = %d, j = %d\n", i, j);            
             //printf("first_col_index = %d, last_col_index = %d\n", first_col_index, last_col_index);
-            if (first_col_index >= last_col_index){
+            if (first_col_index > last_col_index){
                 //printf("loop broken\n");
                 break;
             }
