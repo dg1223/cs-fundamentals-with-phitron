@@ -61,12 +61,6 @@ int main(){
     long long int result = 0;
     if (choices == size){
         result = sumElements(array, size, 0);
-        //for (int i=0; i<size; i++){
-        //    if (array[i] <= 0){
-        //        continue;
-        //    }
-        //    sum += array[i];
-        //}
     }    
     else {
         // assuming the first constraint holds true i.e. size > choices        
@@ -85,17 +79,6 @@ int main(){
         
         int elements_to_discard = size - choices;        
         result = sumElements(array, size, elements_to_discard);
-        //int i;
-        //for (i=elements_to_discard; i<size; i++){
-        //    // we need the maximum summation
-        //    if (array[i] <= 0){
-        //        continue;
-        //    }
-        //    sum += array[i];            
-        //}
-        //if (sum == 0){
-        //        sum = array[i];
-        //    }
     }    
     
     //printf("%lld", sum);
