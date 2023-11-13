@@ -24,6 +24,7 @@ int main()
 
     int *a = fun();
     cout << a << " " << *a << endl;
+    delete a;
 
     // this should throw an error
     // x's address was kept in static memory and cleared
