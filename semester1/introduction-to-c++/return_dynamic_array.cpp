@@ -19,5 +19,6 @@ int main()
     {
         cout << a[i] << " " << endl;
     }
+    delete[] a;
     return 0;
 }
