@@ -16,9 +16,9 @@ class Student {
         this->_class;
         this->gpa;
 
-        (*this).roll = roll;
-        (*this)._class = _class;
-        (*this).gpa = gpa;
+        // (*this).roll = roll;
+        // (*this)._class = _class;
+        // (*this).gpa = gpa;
 
         // roll = roll;
         // _class = _class;
