@@ -12,9 +12,9 @@ class Student {
     // point to the constructor variables of the 
     // current object using the 'this' pointer
     Student(int roll, int _class, double gpa){
-        this->roll;
-        this->_class;
-        this->gpa;
+        this->roll = roll;
+        this->_class = _class;
+        this->gpa = gpa;
 
         // (*this).roll = roll;
         // (*this)._class = _class;
