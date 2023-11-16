@@ -1,3 +1,5 @@
+// O(N^2) time, O(1) space
+
 #include <iostream>
 #include <climits>
 
