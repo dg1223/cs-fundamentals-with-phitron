@@ -6,8 +6,7 @@ using namespace std;
 int main(){
     int n;
 
-    // consider everything including spaces as
-    // a single string until it hits newline
+    // considers every space as the end of one string
     cin >> n;
 
     vector<string> v;
