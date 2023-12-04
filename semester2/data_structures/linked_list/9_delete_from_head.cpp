@@ -67,6 +67,15 @@ void delete_from_position(Node *head, int position){
     Node *node_to_delete = current->next;
     current->next = current->next->next;
     delete node_to_delete;
+    cout << endl << "Deleted from position: " << position << endl << endl;
+}
+
+void delete_head(Node *&head){
+    Node *node_to_delete = head;
+    head = head->next;
+    delete node_to_delete;
+    cout << endl << "Deleted head" << endl << endl;
+
 }
 
 void print_linked_list(Node *head){
@@ -90,7 +99,8 @@ int main(){
         cout << "3. Insert at any position" << endl;
         cout << "4. Insert at head" << endl;
         cout << "5. Delete from position" << endl;
-        cout << "6. Terminate" << endl;
+        cout << "6. Delete head" << endl;
+        cout << "7. Terminate" << endl;
         int option;
         cin >> option;
 
@@ -126,9 +136,17 @@ int main(){
             int position;
             cout << "Enter position: ";
             cin >> position;
-            delete_from_position(head, position);            
+            if (position == 0){
+                delete_head(head);
+            }
+            else {
+                delete_from_position(head, position);                
+            }
         }
         else if (option == 6) {
+            delete_head(head);   
+        }
+        else if (option == 7) {
             break;            
         }
 
