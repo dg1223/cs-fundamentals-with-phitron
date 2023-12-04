@@ -14,7 +14,7 @@ class Node {
 };
 
 // append value
-void insert_at_tail(Node *head, int value){
+void insert_at_tail(Node *&head, int value){
     Node *new_node = new Node(value);
 
     if (head == NULL){
