@@ -39,6 +39,18 @@ void insert_at_tail(Node *&head, int value){
     last_node->next = new_node;
 }
 
+// O(1) time
+void insert_tail(Node *&head, Node *&tail, int value) {
+    Node *new_node = new Node(value);
+    if (head == NULL){
+        head = new_node;
+        tail = new_node;
+        return;
+    }
+    tail->next = new_node;
+    tail = new_node;
+}
+
 void print_linked_list(Node *head){
     cout << endl;
     cout << "Your linked list: ";
@@ -55,13 +67,16 @@ void print_linked_list(Node *head){
 int main(){
     int value;
     Node *head = NULL;
+    // O(1) time
+    Node *tail = NULL;
     while (true){
         cin >> value;
         if (value == -1){
             break;
         }
 
-        insert_at_tail(head, value);
+        // insert_at_tail(head, value);
+        insert_tail(head, tail, value);
     }
     print_linked_list(head);
 
