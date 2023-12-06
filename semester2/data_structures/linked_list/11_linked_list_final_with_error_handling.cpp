@@ -43,7 +43,7 @@ void insert_at_tail(Node *&head, int value){
 }
 
 // O(1) time
-void insert_tail(Node *head, Node *tail, int value) {
+void insert_tail(Node *&head, Node *&tail, int value) {
     Node *new_node = new Node(value);
     if (head == NULL){
         head = new_node;
