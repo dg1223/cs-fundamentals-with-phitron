@@ -13,14 +13,6 @@ class Node {
     }
 };
 
-bool throw_exception_if_null(Node *node){
-    if (node == NULL){
-        cout << endl << "Invalid index" << endl << endl;
-        return true;
-    }
-    return false;
-}
-
 // append value
 void insert_at_tail(Node *&head, int value){
     Node *new_node = new Node(value);
@@ -44,14 +36,10 @@ void insert_at_tail(Node *&head, int value){
 void insert_at_position(Node *head, int position, int value){
     Node *new_node = new Node(value);
     Node *current = head;
-    
     // we need to insert the item before the given position
     // so, i <= position - 1
     for (int i=1; i<=position-1; i++){
         current = current->next;
-        if (throw_exception_if_null(current)){
-            return;
-        }
     }
 
     new_node->next = current->next;
@@ -62,7 +50,6 @@ void insert_at_position(Node *head, int position, int value){
 // we need to pass its address to the function
 void insert_at_head(Node *&head, int value){
     Node *new_node = new Node(value);
-
     // we need to insert the item before the given position
     // so, i <= position - 1
     new_node->next = head;
@@ -71,40 +58,24 @@ void insert_at_head(Node *&head, int value){
 }
 
 void delete_from_position(Node *head, int position){
-    if (throw_exception_if_null(head)){
-        return;
-    }
-
     Node *current = head;
-
     // we set current to the left of the position
     // from which we want to delete the node
     for (int i=1; i<=position-1; i++){
         current = current->next;
-        if (throw_exception_if_null(current)){
-            return;
-        }
     }
-
     Node *node_to_delete = current->next;
-    if (throw_exception_if_null(node_to_delete)){
-        return;
-    }
-
     current->next = current->next->next;
     delete node_to_delete;
     cout << endl << "Deleted from position: " << position << endl << endl;
 }
 
 void delete_head(Node *&head){
-    if (throw_exception_if_null(head)){
-        return;
-    }
-    
     Node *node_to_delete = head;
     head = head->next;
     delete node_to_delete;
     cout << endl << "Deleted head" << endl << endl;
+
 }
 
 void print_linked_list(Node *head){

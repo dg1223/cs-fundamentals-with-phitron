@@ -41,6 +41,7 @@ void insert_at_tail(Node *&head, int value){
     cout << endl << "Inserted at tail" << endl << endl;
 }
 
+// if (pos > size) -> invalid index
 void insert_at_position(Node *head, int position, int value){
     Node *new_node = new Node(value);
     Node *current = head;
@@ -70,6 +71,7 @@ void insert_at_head(Node *&head, int value){
     cout << endl << "Inserted at head" << endl << endl;
 }
 
+// if (pos > size) -> invalid index
 void delete_from_position(Node *head, int position){
     if (throw_exception_if_null(head)){
         return;
@@ -118,6 +120,17 @@ void print_linked_list(Node *head){
         current = current->next;
     }
     cout << endl << endl;;
+}
+
+int size(Node *head) {
+    Node *current = head;
+    int count = 0;
+    while (current != NULL){
+        count++;
+        current = current->next;
+    }
+
+    return count;
 }
 
 int main(){
