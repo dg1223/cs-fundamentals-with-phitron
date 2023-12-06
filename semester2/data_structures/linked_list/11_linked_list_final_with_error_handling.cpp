@@ -22,6 +22,7 @@ bool throw_exception_if_null(Node *node){
 }
 
 // append value
+// O(N) time
 void insert_at_tail(Node *&head, int value){
     Node *new_node = new Node(value);
 
@@ -39,6 +40,18 @@ void insert_at_tail(Node *&head, int value){
     // we have reached the tail
     last_node->next = new_node;
     cout << endl << "Inserted at tail" << endl << endl;
+}
+
+// O(1) time
+void insert_tail(Node *head, Node *tail, int value) {
+    Node *new_node = new Node(value);
+    if (head == NULL){
+        head = new_node;
+        tail = new_node;
+        return;
+    }
+    tail->next = new_node;
+    tail = new_node;
 }
 
 // if (pos > size) -> invalid index
