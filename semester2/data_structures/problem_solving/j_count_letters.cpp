@@ -5,26 +5,30 @@
 using namespace std;
 
 int main(){
-    int n;
-    cin >> n;
-    vector<int> a(n);
+    string s;
+    cin >> s;
 
-    // a
-    for (int i=0; i<n; i++){
-        cin >> a[i];
+    int num_alphabets = 26;
+
+    vector<char> alphabets;
+    vector<int> freq_array(num_alphabets, 0);
+
+    for (int i=0; i<num_alphabets; i++){
+        char letter = i + 97;
+        alphabets.push_back(letter);
     }
 
-    int count = 0;
-    for (int i=0; i<n; i++){
-        int next = a[i] + 1;
-        auto it = find(a.begin(), a.end(), next);
-        if (it != a.end()){
-            count++;
+    for (char c:s){
+        int index = c - 97;
+        freq_array[index]++;
+    }
+
+    for (int i=0; i<num_alphabets; i++){
+        int count = freq_array[i];
+        if (count > 0){
+            cout << alphabets[i] << " : " << count << endl;
         }
     }
-
-    cout << count;
-
 
 
     return 0;
