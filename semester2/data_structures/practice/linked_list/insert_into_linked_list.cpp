@@ -113,7 +113,7 @@ int main(){
         int size_of_ll = size(head);
 
         if (index > size_of_ll){
-            cout << endl << "Invalid" << endl;
+            cout << endl << "Invalid" << endl << endl;
         }
         else {
             if (index == 0){
