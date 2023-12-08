@@ -21,6 +21,7 @@ int main(){
         auto it = find(hashmap.begin(), hashmap.end(), a[i]);
         if (it != hashmap.end()){
             HAS_DUPLICATE = true;
+            break;
         }
         else {
             hashmap.push_back(a[i]);
