@@ -46,6 +46,16 @@ void insert_at_position(Node *head, int position, int value) {
     new_node->prev = current; // 20 <- 100
 }
 
+int size(Node *head) {
+    Node *current = head;
+    int count = 0;
+    while (current != NULL){
+        count++;
+        current = current->next;
+    }
+    return count;
+}
+
 int main(){
     Node *head = new Node(10);
     Node *a = new Node(20);
