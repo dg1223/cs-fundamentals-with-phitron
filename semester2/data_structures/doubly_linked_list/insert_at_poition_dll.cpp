@@ -33,7 +33,7 @@ void print_reverse(Node *tail) {
     cout << endl;
 }
 
-// valid for any position except tail
+// valid for any position except head and tail
 void insert_at_position(Node *head, int position, int value) {
     Node *new_node = new Node(value);
     Node *current = head;
