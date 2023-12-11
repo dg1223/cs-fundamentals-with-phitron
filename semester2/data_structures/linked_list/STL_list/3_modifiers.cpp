@@ -30,7 +30,7 @@ int main(){
     my_list.insert(next(my_list.begin(), 2), new_list.begin(), new_list.end());
     my_list.insert(next(my_list.begin(), 2), v.begin(), v.end());
 
-    // erase or delete
+    // erase or delete; takes value and position
     my_list.erase(next(my_list.begin(), 2));
     // erase multiple values
     my_list.erase(next(my_list.begin(), 2), next(my_list.begin(), 5));
