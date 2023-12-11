@@ -18,11 +18,12 @@ int main(){
     vector<int> v = {100, 200, 300};
     list<int> my_list(v.begin(), v.end());
 
-
+    // // use regular for loop if you need the pointer
     // for (auto it=my_list.begin(); it!=my_list.end(); it++){
     //     cout << *it << endl;
     // }
 
+    // use range for loop for everything else
     for(int val : my_list) {
         cout << val << endl;
     }
