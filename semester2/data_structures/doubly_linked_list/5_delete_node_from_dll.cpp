@@ -46,17 +46,27 @@ void delete_at_position(Node *head, int position) {
     delete node_to_delete;
 }
 
-void delete_head(Node *&head) {
+void delete_head(Node *&head, Node *&tail) {
     Node *node_to_delete = head;
     head = head->next;
     delete node_to_delete;
+    // handle edge case where list has only 1 item
+    if (head == NULL){
+        tail == NULL;
+        return;
+    }
     head->prev = NULL;
 }
 
-void delete_tail(Node *&tail) {
+void delete_tail(Node *&head, Node *&tail) {
     Node *node_to_delete = tail;
     tail = tail->prev;
     delete node_to_delete;
+    // handle edge case where list has only 1 item
+    if (tail == NULL){
+        head == NULL;
+        return;
+    }
     // MUST DO
     tail->next = NULL;
 }
@@ -73,6 +83,8 @@ int size(Node *head) {
 }
 
 int main(){
+    // edge case: only one element in list
+
     // Node *head = NULL;
     // Node *tail = NULL;
     Node *head = new Node(10);
@@ -97,10 +109,10 @@ int main(){
     // delete_head(head);
 
     if (position == 0){
-        delete_head(head);
+        delete_head(head, tail);
     }
     else if (position == size(head)-1){
-        delete_tail(tail);
+        delete_tail(head, tail);
     }
     else if (position >= size(head)) {
         cout << "Invalid" << endl;
