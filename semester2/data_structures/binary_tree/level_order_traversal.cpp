@@ -18,6 +18,12 @@ class Node {
 
 // first come first serve
 void level_order_traversal(Node *root){
+    // account for empty tree
+    if (root == NULL){
+        cout << "Tree is empty" << endl;
+        return;
+    }
+
     queue<Node*> q;
     q.push(root);
     while (!q.empty()){
