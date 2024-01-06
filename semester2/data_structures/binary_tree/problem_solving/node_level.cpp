@@ -1,6 +1,4 @@
 #include <iostream>
-#include <queue>
-#include <utility>
 
 using namespace std;
 
@@ -72,26 +70,19 @@ Node* input_tree(){
     return root;
 }
 
-int node_level(Node *root, int value){
-	queue<pair<Node *, int>> q;
-    q.push({root, 1});
-    while (!q.empty()){
-        pair<Node*, int> pr = q.front();
-        Node *node = pr.first;
-        int level = pr.second;
-        q.pop();
-
-        if (node->value == value){
-            return level;
-        }
-
-        if (node->left){
-            q.push({node->left, level+1});
-        }
-        if (node->right){
-            q.push({node->right, level+1});
-        }
+bool is_node_present(Node *root, int x){
+	if (root == NULL){
+        return false;
     }
+
+    if (root->value == x){
+        return true;
+    }
+
+    bool l = is_node_present(root->left, x);
+    bool r = is_node_present(root->right, x);
+
+    return (l || r);
 }
 
 int main(){
