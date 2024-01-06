@@ -71,21 +71,31 @@ Node* input_tree(){
     return root;
 }
 
-int count_leaf(Node *root){
-    // base case
-    if (root == NULL){
+long long int leftSum(Node *root)
+{
+	if (root == NULL){
         return 0;
     }
 
-    if (root->left == NULL && root->right == NULL){
-        return 1;
-    }
-    else {
-        int l = count_leaf(root->left);
-        int r = count_leaf(root->right);
-        return l + r;
+    queue<Node*> q;    
+    q.push(root);
+    long long int sum = 0;    
+
+    while (!q.empty()){
+        Node *f = q.front();
+        q.pop();
+
+        // traverse the children
+        if (f->left){
+            q.push(f->left);
+            sum += f->left->value;
+        }
+        if (f->right){
+            q.push(f->right);
+        }
     }
 
+    return sum;
 }
 
 int main(){
