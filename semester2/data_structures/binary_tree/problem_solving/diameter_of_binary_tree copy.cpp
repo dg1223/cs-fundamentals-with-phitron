@@ -72,38 +72,25 @@ Node* input_tree(){
     return root;
 }
 
-vector<int> getLeftView(Node *root){
-	bool freq[3001] = {false};
-    queue<pair<Node*, int>> q;
+int mx = 0;
 
-    // handle empty tree input
-    if (root){
-        q.push({root, 1});
-    }
-    
-    vector<int> v;
-
-    while (!q.empty()){
-        pair<Node*, int> pr = q.front();
-        q.pop();
-        Node *node = pr.first;
-        int level = pr.second;
-
-        if (freq[level] == false){
-            v.push_back(node->value);
-            freq[level] = true;
-        }
-
-        if (node->left){
-            q.push({node->left, level+1});
-        }
-
-        if (node->right){
-            q.push({node->right, level+1});
-        }
+int max_height(Node *root){
+    if (root == NULL){
+        return 0;
     }
 
-    return v;
+    int l = max_height(root->left);
+    int r = max_height(root->right);
+    int diameter = l + r;
+    mx = max(mx, diameter);
+
+    return max(l, r) + 1;
+}
+
+int diameterOfBinaryTree(Node *root){{
+    mx = 0;
+	int h = max_height(root);
+    return mx;
 }
 
 int main(){
