@@ -9,6 +9,7 @@ int main(){
     int n;
     cin >> n;
 
+    // NlogN time
     for (int i=0; i<n; i++){
         int x;
         cin >> x;
