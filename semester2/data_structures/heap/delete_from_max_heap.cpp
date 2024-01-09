@@ -34,7 +34,7 @@ void delete_heap(vector<int> &v){
         int right_idx = cur * 2 + 2;
         int last_idx = v.size() - 1;
         if (left_idx <= last_idx && right_idx <= last_idx){
-            if (v[left_idx] > v[right_idx] && v[left_idx] > v[cur]){
+            if (v[left_idx] >= v[right_idx] && v[left_idx] > v[cur]){
                 swap(v[left_idx], v[cur]);
                 cur = left_idx;
             }
