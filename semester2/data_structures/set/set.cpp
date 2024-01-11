@@ -24,6 +24,7 @@ int main(){
         cout << "no" << endl;
     }
 
+    // prints in-order
     for (auto it = s.begin(); it != s.end(); it++)
     {
         cout << *it << endl;
