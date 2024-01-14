@@ -97,15 +97,15 @@ void level_order_traversal(Node *root){
     }
 }
 
-Node* convert(int arr[], int size, int l, int r){
+Node* convert(int arr[],int l, int r){
     if (l > r){
         return NULL;
     }
 
     int mid = (l + r) / 2;
     Node *root = new Node(arr[mid]);
-    Node *left_root = convert(arr, size, l, mid-1);
-    Node *right_root = convert(arr, size, mid+1, r);
+    Node *left_root = convert(arr, l, mid-1);
+    Node *right_root = convert(arr, mid+1, r);
     root->left = left_root;
     root->right = right_root;
     return root;
@@ -120,7 +120,7 @@ int main(){
     }
 
     // array, size, start index, end index
-    Node *root = convert(arr, size, 0, size-1);
+    Node *root = convert(arr, 0, size-1);
 
     level_order_traversal(root);
 
@@ -128,3 +128,27 @@ int main(){
 }
 
 // 2 5 8 12 15 18
+
+/*
+    0    1   2     3     4     5
+    2    5   8    12    15    18
+    l                          r
+             M(8)                                                   6. 8.l = 2; 8.r = ?
+    l    r                                                       5. l(ret -> 2; 2.l = X; 2.r = 5) 
+    M(2)                            
+r   l                            1. r(l_r) = NULL            4. l(ret -> 5; 5.l = X, 5.r = X)
+        l,r                         
+         M(5)                           
+    r   l                            2. r(l_r) = NULL    
+         r   l                           3. l(r_r) = NULL
+
+Tree up to this point:
+
+                    8
+                  /   \
+                 2
+                / \
+               x   5
+                  / \
+                 x   x
+*/
