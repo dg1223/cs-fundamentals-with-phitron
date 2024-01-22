@@ -1,12 +1,4 @@
-/*
-Use this template to find the level of all nodes
-*/
-
 #include <bits/stdc++.h>
-// #include <iostream>
-// #include <vector>
-// #include <queue>
-// #include <cstring>
 
 using namespace std;
 
