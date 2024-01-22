@@ -21,6 +21,7 @@ void bfs(int source){
         cout << parent << endl;
 
         for (int child : v[parent]){
+            cout << "child: " << child << endl;
             if (!visited[child]){
                 q.push(child);
                 visited[child] = true;
@@ -45,6 +46,8 @@ int main(){
     
     memset(visited, false, sizeof(visited));
 
+    cout << endl;
+    
     bfs(source);
 
     return 0;
@@ -65,5 +68,17 @@ input
 5 6
 1 4
 1 6
+0
+*/
+
+/*
+input
+7 6
+0 1
+0 2
+1 3
+2 6
+3 4
+3 5
 0
 */
