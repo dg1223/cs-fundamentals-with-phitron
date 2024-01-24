@@ -66,6 +66,11 @@ void bfs(int source_i, int source_j){
 int main(){
     cin >> n >> m;
 
+    if (n <= 0 || m <= 0 || n > MAX_ROW || m > MAX_COL) {
+        cerr << "Invalid grid dimensions." << endl;
+        return 1;
+    }
+
     for (int i=0; i<n; i++){
         for (int j=0; j<m; j++){
             cin >> grid[i][j];
@@ -74,6 +79,11 @@ int main(){
 
     int source_i, source_j;
     cin >> source_i >> source_j;
+    
+    if (!isValid(source_i, source_j)) {
+        cerr << "Invalid source node." << endl;
+        return 1;
+    }
     
     memset(visited, false, sizeof(visited));
     memset(dist, -1, sizeof(dist));
