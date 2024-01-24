@@ -18,13 +18,19 @@ have to pass them to every function as parameters
 int n, m;
 
 // check corners and edges
-bool isValid(int child_i, int child_j){
-    if (child_i < 0 || child_i >= n || child_j < 0 || child_j >= m){
-        return false;
-    }
+// bool isValid(int child_i, int child_j){
+//     if (child_i < 0 || child_i >= n || child_j < 0 || child_j >= m){
+//         return false;
+//     }
 
-    return true;
+//     return true;
+// }
+bool isValid(int child_i, int child_j){
+    // within row bounds: child_i >= 0 && child_i < n
+    // within col bounds: child_j >= 0 && child_j < m
+    return (child_i >= 0 && child_i < n && child_j >= 0 && child_j < m);
 }
+
 
 void dfs(int src_i, int src_j){
     // print source
@@ -32,11 +38,11 @@ void dfs(int src_i, int src_j){
 
     visited[src_i][src_j] = true;
 
-    for (int i=0; i<4; i++){
+    for (pair<int, int> direction : DIRECTIONS){
         // source = 1 1
         // children: 1 1, 1 2, 0 1, 2 1
-        int child_i = src_i + DIRECTIONS[i].first;
-        int child_j = src_j + DIRECTIONS[i].second;
+        int child_i = src_i + direction.first;
+        int child_j = src_j + direction.second;
 
         // check corners and edges
         /*
