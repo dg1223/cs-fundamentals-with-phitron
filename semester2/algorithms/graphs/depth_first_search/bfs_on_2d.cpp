@@ -34,7 +34,6 @@ void bfs(int source_i, int source_j){
     dist[source_i][source_j] = 0;
 
     while (!q.empty()){
-        // cout << "while" << endl;
         pair<int, int> parent = q.front();
         int first = parent.first;
         int second = parent.second;
@@ -56,7 +55,6 @@ void bfs(int source_i, int source_j){
             if the child nodes have been visited or not
             */
             if (isValid(child_i, child_j) && !visited[child_i][child_j]){
-                // cout << "if statement" << endl;
                 q.push({child_i, child_j});
                 visited[child_i][child_j] = true;
                 dist[child_i][child_j] = dist[first][second] + 1;
