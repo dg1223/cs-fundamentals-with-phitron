@@ -62,6 +62,11 @@ void dfs(int src_i, int src_j){
 int main(){    
     cin >> n >> m;
 
+    if (n <= 0 || m <= 0 || n > MAX_ROW || m > MAX_COL) {
+        cerr << "Invalid grid dimensions." << endl;
+        return 1;
+    }
+
     for (int i=0; i<n; i++){
         for (int j=0; j<m; j++){
             cin >> grid[i][j];
@@ -70,6 +75,11 @@ int main(){
 
     int src_i, src_j;
     cin >> src_i >> src_j;
+
+    if (!isValid(src_i, src_j)) {
+        cerr << "Invalid source node." << endl;
+        return 1;
+    }
 
     cout << endl;
 
