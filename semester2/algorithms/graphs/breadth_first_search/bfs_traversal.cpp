@@ -10,7 +10,7 @@ vector<int> v[1005];
 // visited list
 bool visited[1005];
 
-void bfs(int source){
+void dfs(int source){
     queue<int> q;
     q.push(source);
     visited[source] = true;
@@ -48,7 +48,7 @@ int main(){
 
     cout << endl;
     
-    bfs(source);
+    dfs(source);
 
     return 0;
 }

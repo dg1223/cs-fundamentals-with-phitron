@@ -11,7 +11,7 @@ bool visited[1005];
 // track parent nodes
 int par[1005];
 
-void bfs(int source){
+void dfs(int source){
     queue<int> q;
     q.push(source);
     visited[source] = true;
@@ -68,7 +68,7 @@ int main(){
     // default parent is -1 i.e. no parent
     memset(par, -1, sizeof(par));
 
-    bfs(source);
+    dfs(source);
 
     // print shortest path
     print_shortest_path(par, dest);

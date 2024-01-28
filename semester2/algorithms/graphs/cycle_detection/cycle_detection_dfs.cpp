@@ -11,27 +11,17 @@ vector<int> adj[n];
 int parent_array[n];
 bool answer;
 
-void dfs(int source){
-    queue<int> q;
-    q.push(source);
-    visited[source] = true;
-
-    // use 1->2->3->1 as an example to understand
-    while (!q.empty()){
-        int parent = q.front();
-        // cout << parent << endl;
-        q.pop();
-
-        for(int child : adj[parent]){
-            // the 2nd condition prevents 2 nodes from going back and forth as a cycle
-            if (visited[child] && parent_array[parent] != child){
-                answer = true;
-            }
-            if (!visited[child]){
-                visited[child] = true;
-                parent_array[child] = parent;
-                q.push(child);
-            }
+void dfs(int parent){
+    visited[parent] = true;
+    // cout << parent << endl;
+    for(int child : adj[parent]){
+        if (visited[child] && parent_array[parent] != child){
+            answer = true;
+            // cout << parent << " " << child << " " << parent_array[parent];
+        }
+        if (!visited[child]){
+            parent_array[child] = parent;
+            dfs(child);
         }
     }
 }
@@ -56,6 +46,11 @@ int main(){
             dfs(i);
         }
     }
+
+    // // check if parents are valid
+    // for (int i=0; i<n; i++){
+    //     cout << parent_array[i] << " ";
+    // }
 
     if (answer){
         cout << "Cycle found";
