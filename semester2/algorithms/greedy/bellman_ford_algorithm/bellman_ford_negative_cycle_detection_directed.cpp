@@ -34,28 +34,28 @@ changes to it inside the function are reflected outside.
 */
 void relax_paths(vector<Edge> edge_list, bool detect_cycle, bool &cycle){
     for(Edge ed: edge_list){
-            int u, v, c;
-            u = ed.u;
-            v = ed.v;
-            c = ed.c;
+        int u, v, c;
+        u = ed.u;
+        v = ed.v;
+        c = ed.c;
 
-            // path relaxation
-            /*
-            We need to check if distance is lesser than infinity first
-            because otherwise, if we add cost c to infinity, it will 
-            overflow the integer.
-            */
-            if (dist[u] < INT_MAX && dist[u]+c < dist[v]){
-                if (!detect_cycle){
-                    dist[v] = dist[u] + c;
-                }
-                else {                  
-                    cycle = true;
-                    break;            
-                }
+        // path relaxation
+        /*
+        We need to check if distance is lesser than infinity first
+        because otherwise, if we add cost c to infinity, it will 
+        overflow the integer.
+        */
+        if (dist[u] < INT_MAX && dist[u]+c < dist[v]){
+            if (!detect_cycle){
+                dist[v] = dist[u] + c;
+            }
+            else {                  
+                cycle = true;
+                break;            
             }
         }
     }
+}
 
 
 int main(){
