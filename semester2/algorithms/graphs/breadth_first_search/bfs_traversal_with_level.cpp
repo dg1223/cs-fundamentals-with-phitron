@@ -16,7 +16,7 @@ int level[1005];
 // visited list
 bool visited[1005];
 
-void dfs(int source){
+void bfs(int source){
     queue<int> q;
     q.push(source);
     visited[source] = true;
@@ -56,7 +56,7 @@ int main(){
     // set default level to -1, esp. for unconnected nodes
     memset(level, -1, sizeof(level));
 
-    dfs(source);
+    bfs(source);
 
     for (int i=0; i<n; i++){
         cout << i << " " << level[i] << endl;
