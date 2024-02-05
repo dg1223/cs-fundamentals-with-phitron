@@ -32,7 +32,13 @@ int main(){
 
     memset(visited, false, sizeof(visited));
 
-    dfs(0);
+    // the for loop takes care of cycles and 
+    // disconnected components
+    for (int i=0; i<n; i++){
+        if (!visited[i]){
+            dfs(i);
+        }
+    }
 
     return 0;
 }
@@ -45,4 +51,15 @@ int main(){
 1 4
 3 5
 3 2
+*/
+
+/*
+graph with cycle and disconnected components
+7 6
+0 1
+1 2
+3 4
+4 5
+5 6
+6 3
 */
