@@ -15,6 +15,13 @@ void dfs(int parent){
     visited[parent] = true;
     // cout << parent << endl;
     for(int child : adj[parent]){
+        /*
+        In an undirected graph, for an edge [1 -- 2], since we can go both
+        ways, we don't consider it a cycle. Otherwise, we'll keep looping
+        between them infinitely.
+        We consider there to be a cycle when there are at least 3 vertices
+        and you can do a merry-go-round around them.
+        */
         if (visited[child] && parent_array[parent] != child){
             answer = true;
             // cout << parent << " " << child << " " << parent_array[parent];
