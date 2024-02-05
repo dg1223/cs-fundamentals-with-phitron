@@ -11,7 +11,7 @@ vector<int> adj[n];
 int parent_array[n];
 bool answer;
 
-void dfs(int source){
+void bfs(int source){
     queue<int> q;
     q.push(source);
     visited[source] = true;
@@ -53,7 +53,7 @@ int main(){
 
     for (int i=0; i<n; i++){
         if (!visited[i]){
-            dfs(i);
+            bfs(i);
         }
     }
 
