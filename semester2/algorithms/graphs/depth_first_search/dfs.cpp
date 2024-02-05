@@ -32,8 +32,7 @@ int main(){
 
     memset(visited, false, sizeof(visited));
 
-    // the for loop takes care of cycles and 
-    // disconnected components
+    // the for loop takes care of disconnected components
     for (int i=0; i<n; i++){
         if (!visited[i]){
             dfs(i);
