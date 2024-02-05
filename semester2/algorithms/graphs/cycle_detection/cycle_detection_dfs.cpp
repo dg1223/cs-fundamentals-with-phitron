@@ -48,6 +48,11 @@ int main(){
     memset(parent_array, -1, sizeof(parent_array));
     answer = false;
 
+    /*
+    We have to perform DFS on each unvisited vertex
+    so that we cover the entire graph even if it has 
+    disconnected components
+    */
     for (int i=0; i<n; i++){
         if (!visited[i]){
             dfs(i);
