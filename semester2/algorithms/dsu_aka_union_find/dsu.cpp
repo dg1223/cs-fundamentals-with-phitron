@@ -13,18 +13,18 @@ void dsu_initialize(int n) {
     par[2] = 1;
 }
 
-int find(int node){
+int dsu_find(int node){
     if (par[node] == -1){
         return node;
     }
-    // // naive implementation
+    // // naive implementation: O(N)
     // return find(par[node]);
 
     /**
      * Optimized: path compression 
      * every node's parent is now its leader
      * */
-    int leader = find(par[node]);
+    int leader = dsu_find(par[node]);
     par[node] = leader;
     return leader;
     
