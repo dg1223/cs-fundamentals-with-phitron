@@ -4,13 +4,15 @@ using namespace std;
 
 const int n = 1e5+5;
 int par[n];
+// for heuristic 1: union by size
+int group_size[n];
 
 void dsu_initialize(int n) {
     for (int i=0; i<n; i++){
         par[i] = -1;
+        // union by size
+        group_size[i] = 1;
     }
-    par[1] = 3;
-    par[2] = 1;
 }
 
 int dsu_find(int node){
@@ -32,11 +34,45 @@ int dsu_find(int node){
     // return par[node] = find(par[node]);
 }
 
+void dsu_union(int node1, int node2){
+    int leader_a = dsu_find(node1);
+    int leader_b = dsu_find(node2);
+
+    // elect a new leader of the combined group based on a heuristic
+    // naive heuristic
+    par[leader_a] = leader_b;
+}
+
+void dsu_union_by_size(int node1, int node2){
+    int leader_a = dsu_find(node1);
+    int leader_b = dsu_find(node2);
+
+    /**
+     * elect a new leader of the combined group based on a heuristic
+     * heuristic 1: union by size
+     * heuristic 2: union by rank
+     * */ 
+
+    // union by size
+    if (group_size[leader_a] > group_size[leader_b]){
+        par[leader_b] = leader_a;
+        group_size[leader_a] += group_size[leader_b];
+    }
+    else {
+        par[leader_a] = leader_b;
+        group_size[leader_b] += group_size[leader_a];
+    }
+}
+
 int main(){
-    dsu_initialize(4);
-    cout << find(0) << endl;
-    cout << find(1) << endl;
-    cout << find(2) << endl;
-    cout << find(3) << endl;
+    dsu_initialize(7);
+    dsu_union_by_size(1, 2);
+    dsu_union_by_size(2, 3);
+    dsu_union_by_size(4, 5);
+    dsu_union_by_size(5, 6);
+    // connect both groups
+    dsu_union_by_size(1, 4);
+    cout << dsu_find(1) << endl;
+    cout << dsu_find(4) << endl;
     return 0;
 }
