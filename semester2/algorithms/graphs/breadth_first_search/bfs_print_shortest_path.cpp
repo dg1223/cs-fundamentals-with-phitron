@@ -4,8 +4,6 @@ using namespace std;
 
 // adj list
 vector<int> v[1005];
-// level tracker
-int level[1005];
 // visited list
 bool visited[1005];
 // track parent nodes
@@ -15,7 +13,7 @@ void bfs(int source){
     queue<int> q;
     q.push(source);
     visited[source] = true;
-    level[source] = 0;
+    // level[source] = 0;
 
     while (!q.empty()){
         int parent = q.front();
@@ -26,8 +24,6 @@ void bfs(int source){
             if (!visited[child]){
                 q.push(child);
                 visited[child] = true;
-                // child's level = parent's level + 1
-                level[child] = level[parent] + 1;
                 par[child] = parent;
             }
         }
@@ -63,8 +59,6 @@ int main(){
     cin >> source >> dest;
     
     memset(visited, false, sizeof(visited));
-    // set default level to -1, esp. for unconnected nodes
-    memset(level, -1, sizeof(level));
     // default parent is -1 i.e. no parent
     memset(par, -1, sizeof(par));
 
