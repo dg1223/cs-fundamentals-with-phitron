@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int n = 1e5 + 5; // variable size doesn't work with vectors
+const int n = 1e5 + 5;
 
 vector<int> v[n];
 bool visited[n];
