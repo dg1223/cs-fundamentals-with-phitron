@@ -9,25 +9,29 @@ int knapsack(int n, int weight[], int value[], int W){
         return 0;
     }
 
+    // DRY principle; check commented code below for explanation
+    int option_2 = knapsack(n-1, weight, value, W);
+
     // check if the bag can hold the item based on weight
     if (weight[n] <= W){
         /*
             We have 2 options here: take it or leave it
-        */
-        
+        */        
         // take it: since we are putting the item in the bag, the bag 
         // can now contain lesser weight and will have more value
         // W-weight[n] >= 0 because weight[n] <= W
-        int op1 = knapsack(n-1, weight, value, W-weight[n]) + value[n];
-        // leave it: weight won't change because we are skipping the item
-        int op2 = knapsack(n-1, weight, value, W);
+        int option_1 = knapsack(n-1, weight, value, W-weight[n]) + value[n];
 
-        return max(op1, op2);
+        // leave it: weight won't change because we are skipping the item
+        // int option_2 = knapsack(n-1, weight, value, W);
+
+        return max(option_1, option_2);
     }
     else {
         // only 1 option: leave it; bag can't hold
-        int op2 = knapsack(n-1, weight, value, W);
-        return op2;
+        // int option_2 = knapsack(n-1, weight, value, W);
+        
+        return option_2;
     }
 }
 
