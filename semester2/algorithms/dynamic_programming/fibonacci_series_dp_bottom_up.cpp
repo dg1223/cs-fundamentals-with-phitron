@@ -1,3 +1,7 @@
+/*
+loop + pre-calculate subproblems
+*/
+
 #include <iostream>
 #include <cstring>
 
