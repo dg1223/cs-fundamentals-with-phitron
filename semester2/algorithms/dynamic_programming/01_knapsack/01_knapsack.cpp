@@ -30,7 +30,7 @@ int knapsack(int n, int weight[], int value[], int W){
     else {
         // only 1 option: leave it; bag can't hold
         // int option_2 = knapsack(n-1, weight, value, W);
-        
+
         return option_2;
     }
 }
@@ -64,4 +64,11 @@ int main(){
 2 3 4 5
 1 3 5 3
 8
+*/
+
+/*
+3
+2 5 3
+4 5 2
+5
 */
