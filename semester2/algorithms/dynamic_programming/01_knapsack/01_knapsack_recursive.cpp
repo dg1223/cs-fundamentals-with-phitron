@@ -1,3 +1,7 @@
+/*
+Time complexity: O(2^n)
+*/
+
 #include <iostream>
 
 using namespace std;
