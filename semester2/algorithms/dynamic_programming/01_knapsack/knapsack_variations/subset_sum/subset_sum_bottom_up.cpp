@@ -63,6 +63,7 @@ int main(){
         }
     }
 
+    // to print and understand the subset matrix
     for (int i=0; i<=n; i++){
         for (int j=0; j<=s; j++){
             if (dp[i][j]){
