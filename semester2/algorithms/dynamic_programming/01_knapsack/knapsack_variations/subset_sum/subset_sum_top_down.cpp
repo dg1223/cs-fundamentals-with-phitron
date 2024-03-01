@@ -1,4 +1,4 @@
-// Does a subset exist that add up to the desired sum?
+// Does a subset exist that adds up to the desired sum?
 
 #include <iostream>
 
