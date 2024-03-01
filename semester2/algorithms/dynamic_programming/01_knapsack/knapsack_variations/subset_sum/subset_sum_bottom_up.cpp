@@ -63,17 +63,24 @@ int main(){
         }
     }
 
-    // to print and understand the subset matrix
-    for (int i=0; i<=n; i++){
-        for (int j=0; j<=s; j++){
-            if (dp[i][j]){
-                cout << "T ";
-            }
-            else {
-                cout << "F ";
-            }
-        }
-        cout << endl;
+    // // to print and understand the subset matrix
+    // for (int i=0; i<=n; i++){
+    //     for (int j=0; j<=s; j++){
+    //         if (dp[i][j]){
+    //             cout << "T ";
+    //         }
+    //         else {
+    //             cout << "F ";
+    //         }
+    //     }
+    //     cout << endl;
+    // }
+
+    if (subset_sum(n, a, s)){
+        cout << "YES" << endl;
+    }
+    else {
+        cout << "NO" << endl;
     }
 
     // if (dp[n][s]){
