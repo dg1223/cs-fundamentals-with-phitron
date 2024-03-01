@@ -101,6 +101,7 @@ int main(){
 */
 
 /*
+edge case: input has 0
 5
 0 0 0 0 7
 7
