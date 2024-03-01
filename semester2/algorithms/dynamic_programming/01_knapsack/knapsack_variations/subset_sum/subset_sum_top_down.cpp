@@ -1,3 +1,5 @@
+// Does a subset exist that add up to the desired sum?
+
 #include <iostream>
 
 using namespace std;
