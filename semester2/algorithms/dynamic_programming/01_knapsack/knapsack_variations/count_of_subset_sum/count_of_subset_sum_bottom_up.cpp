@@ -2,7 +2,7 @@
 Do a diff with subset sum bottom up to understand
 */
 
-// In how many ways can you get to the sum?
+// How many subsets add up to the desired the sum?
 
 #include <iostream>
 
