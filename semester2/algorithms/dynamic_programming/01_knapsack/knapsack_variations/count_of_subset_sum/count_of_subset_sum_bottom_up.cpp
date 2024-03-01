@@ -68,13 +68,15 @@ int main(){
         }
     }
 
-    // print subset matrix for understanding
-    for (int i=0; i<=n; i++){
-        for (int j=0; j<=s; j++){
-            cout << dp[i][j] << " ";
-        }
-        cout << endl;
-    }
+    // // print subset matrix for understanding
+    // for (int i=0; i<=n; i++){
+    //     for (int j=0; j<=s; j++){
+    //         cout << dp[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
+
+    cout << subset_sum(n, a, s);
 
     // if (dp[n][s]){
     //     cout << "YES" << endl;
