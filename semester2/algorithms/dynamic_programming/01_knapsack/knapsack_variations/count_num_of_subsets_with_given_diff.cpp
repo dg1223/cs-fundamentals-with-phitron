@@ -7,6 +7,12 @@ See notes for the algebraic solution that produces
 this equation
 */
 
+/*
+This problem is the same as TARGET SUM.
+=> Which operator (+ or -) can you put before each item
+so that their sum equals the given difference?
+*/
+
 // How many subsets add up to the desired the sum?
 
 #include <iostream>
