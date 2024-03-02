@@ -1,3 +1,5 @@
+// Out of all the possible subsets, find the miimum absolute difference
+
 #include <iostream>
 #include <vector>
 #include <climits>
