@@ -9,32 +9,6 @@ NEED BETTER EXPLANATION
 
 using namespace std;
 
-// for memoization
-int dp[1005][1005];
-
-bool subset_sum(int n, int a[], int s){
-    // base case
-    if (n == 0){
-        return s == 0;
-    }
-
-    // use memoization
-    int dp_current = dp[n][s];
-    if (dp_current != -1){
-        return dp_current;
-    }
-    // if current value is within sum
-    bool op2 = subset_sum(n-1, a, s);
-    if (a[n-1] <= s){
-        bool op1 = subset_sum(n-1, a, s-a[n-1]);
-        // bool op2 = subset_sum(n-1, a, s);
-        return dp[n][s] = op1 || op2;
-    }
-    else {
-        return dp[n][s] = op2;
-    }
-}
-
 int main(){
     int n;
     cin >> n;
@@ -78,19 +52,12 @@ int main(){
     //     cout << endl;
     // }
 
-    if (subset_sum(n, a, s)){
+    if (dp[n][s]){
         cout << "YES" << endl;
     }
     else {
         cout << "NO" << endl;
     }
-
-    // if (dp[n][s]){
-    //     cout << "YES" << endl;
-    // }
-    // else {
-    //     cout << "NO" << endl;
-    // }
 
     return 0;
 }
@@ -99,4 +66,22 @@ int main(){
 4
 1 2 3 6
 7
+*/
+
+/*
+5
+1 2 3 4 5
+0
+*/
+
+/*
+5
+2 3 4 5 6
+1
+*/
+
+/*
+6
+10 20 30 40 50 60
+100
 */
